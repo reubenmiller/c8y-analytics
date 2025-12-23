@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/reubenmiller/go-c8y-cli/v2/tools/schema/extensionCommands.json
+---
+group:
+  name: management
+  description: management
+
+commands:
+  - name : restart
+    description: Restart the Apama microservice 
+    exampleList:
+      - command: c8y analytics management restart
+        description: Restart the Apama microservice
+    path: /service/cep/restart
+    method: PUT
+  - name : version
+    description: Get the version of the Apama microservice
+    exampleList:
+      - command: c8y analytics management version
+        description: Get the version of the Apama microservice
+    path: /service/cep/diagnostics/componentVersion
+    method: GET
+  - name : health
+    description: Get the health of the Apama microservice
+    exampleList:
+      - command: c8y analytics management health
+        description: Get the health of the Apama microservice
+    path: /service/cep/health
+    method: GET
+  - name : diagnosticsOverview
+    description: Get diagnostics overview of the Apama microservice
+    exampleList:
+      - command: c8y analytics management diagnosticsOverview --outputFileRaw "{filename}" > /dev/null
+        description: Get diagnostics overview of the Apama microservice
+    path: /service/cep/diagnostics/overview
+    method: GET
+  - name : diagnosticsEnhanced
+    description: Get full diagnostics of the Apama microservice
+    exampleList:
+      - command: c8y analytics management diagnosticsEnhanced --outputFileRaw "{filename}" > /dev/null
+        description: Get full diagnostics of the Apama microservice
+    path: /service/cep/diagnostics/enhanced
+    method: GET
+  - name : numClients
+    description: Configure the number of used by the Apama microservice
+    exampleList:
+      - command: c8y analytics management numClients --count 5
+        description: Use 5 clients concurrently.
+    path: /tenant/options
+    method: POST
+    body: 
+      - name : count
+        type: integer
+        property: value
+        description: 
+          The number of clients to be used by the Apama microservice
+        required: true
+    bodyTemplates:
+      - type: jsonnet
+        template: |
+          {category: "streaminganalytics", key: "client.numClients"}
+  - name : numWorkerThreads
+    description: 	The number of worker threads of Analytics Builder. The default value is 1. 
+    exampleList:
+      - command: c8y analytics management numWorkerThreads --count 5
+        description: Use 5 worker threads concurrently.
+    path: /tenant/options
+    method: POST
+    body: 
+      - name : count
+        type: integer
+        property: value
+        description: 
+          The number of worker threads to be used by Analytics Builder
+        required: true
+    bodyTemplates:
+      - type: jsonnet
+        template: |
+          {category: "analytics.builder", key: "client.numWorkerThreads"}          
+  - name : timedelay_secs
+    description: The maximum delay in seconds before the input block considers an event to be old. The default value is 1 second.
+    exampleList:
+      - command: c8y analytics management timedelay_secs --delay 10
+        description: The maximum delay in seconds configured to be 10 seconds.
+    path: /tenant/options
+    method: POST
+    body: 
+      - name : delay
+        type: integer
+        property: value
+        description: 
+          The maximum delay in seconds before the input block considers an event to be old.
+        required: true
+    bodyTemplates:
+      - type: jsonnet
+        template: |
+          {category: "analytics.builder", key: "client.timedelay_secs"}          

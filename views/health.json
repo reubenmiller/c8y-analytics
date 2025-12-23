@@ -1,0 +1,16 @@
+{
+    "version": "1",
+    "definitions": [
+        {
+            "name": "health",
+            "priority": 400,
+            "requestPath": "/service/cep/health",
+            "columns": [
+                "status",
+                "components.apamaHealth.details.instance",
+                "components.livenessStatus",
+                "components.readinessStatus"
+            ]
+        }
+    ]
+}

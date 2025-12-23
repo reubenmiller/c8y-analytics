@@ -8,14 +8,14 @@ commands:
   - name : list
     description: Get collection of EPL Apps
     exampleList:
-      - command: c8y epl list
+      - command: c8y analytics epl list
         description: List EPL Apps
     path: /inventory/managedObjects?type=apama_eplfile
     method: GET
   - name : get
     description: Get EPL App by ID
     exampleList:
-      - command: c8y epl get --id 12345
+      - command: c8y analytics epl get --id 12345
         description: Get EPL App by ID
     path: /service/cep/eplfiles/{id}
     method: GET
@@ -27,7 +27,7 @@ commands:
   - name: create
     description: Create a new EPL App
     exampleList:
-      - command: c8y epl create --data '{"name":"My EPL App","description":"Description of my EPL App"}'
+      - command: c8y analytics epl create --data '{"name":"My EPL App","description":"Description of my EPL App"}'
         description: Create a new EPL App
     path: /service/cep/eplfiles
     method: POST
@@ -59,7 +59,7 @@ commands:
   - name : delete
     description: Delete EPL App by ID
     exampleList:
-      - command: c8y epl delete --id 12345
+      - command: c8y analytcis epl delete --id 12345
         description: Delete EPL App by ID
     path: /service/cep/eplfiles/{id}
     method: DELETE
@@ -71,7 +71,7 @@ commands:
   - name: update
     description: Update an existing EPL App
     exampleList:
-      - command: c8y epl update --data '{"name":"My EPL App","description":"Description of my EPL App"}'
+      - command: c8y analytics epl update --data '{"name":"My EPL App","description":"Description of my EPL App"}'
         description: Update an existing EPL App
     path: /service/cep/eplfiles/{id}
     method: PUT
