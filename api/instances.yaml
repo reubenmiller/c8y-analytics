@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/reubenmiller/go-c8y-cli/v2/tools/schema/extensionCommands.json
+---
+group:
+  name: instances
+  description: Analytics Builder Template instances
+
+commands:
+  - name : list
+    description: Get all instances of a specific Analytics Builder Template model
+    exampleList:
+      - command: c8y analytics instances list
+        description: Get all instances of a specific Analytics Builder Template model
+    path: /service/cep/analyticsbuilder/{id}/instances
+    method: GET
+    pathParameters:
+      - name: id
+        type: string
+        required: true
+        description: The ID of the Analytics Builder Template 
+  - name: update
+    description: Update an existing Analytics Builder Template instance
+    exampleList:
+      - command: c8y analytics instances update --id 12345 --instanceId 67890 --data '{"state":"ACTIVE"}'
+        description: Update an existing Analytics Builder Template instance
+    path: /service/cep/analyticsbuilder/{id}/instances/{instanceId}
+    method: PUT
+    pathParameters:
+      - name: id
+        type: string
+        required: true
+        description: The ID of the Analytics Builder Template model
+      - name: instanceId
+        type: string
+        required: true
+        description: The ID of the Analytics Builder Template instance
+    body:
+      - name: name
+        property: instanceName
+        type: string
+        description: The name of the Analytics Builder model
+        required: false
+        pipeline: true
+      - name: mode
+        type: string
+        description: The mode of the Analytics Builder model
+        required: false
+        validationSet:
+          - DRAFT
+          - SIMULATION
+          - TEST
+          - PRODUCTION
+      - name: state
+        type: string
+        description: The state of the Analytics Builder model
+        required: false
+        validationSet:
+          - ACTIVE
+          - INACTIVE
+  - name : delete
+    description: Delete an Analytics Builder Template instance by ID
+    exampleList:
+      - command: c8y analytics instances delete --id 12345 --instanceId 67890
+        description: Delete an Analytics Builder Template instance by ID
+    path: /service/cep/analyticsbuilder/{id}/instances/{instanceId}
+    method: DELETE
+    pathParameters:
+      - name: id
+        type: string
+        required: true
+        description: The ID of the Analytics Builder Template model
+      - name: instanceId
+        type: string
+        required: true
+        description: The ID of the Analytics Builder Template instance

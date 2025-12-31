@@ -1,0 +1,17 @@
+{
+    "version": "1",
+    "definitions": [
+        {
+            "name": "abinstance",
+            "priority": 400,
+            "fragments": ["instanceName","templateParameterValues","state"],
+            "columns": [
+                "id",
+                "instanceName",
+                "state",
+                "mode",
+                "param:templateParameterValues.**"
+            ]
+        }
+    ]
+}
