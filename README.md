@@ -144,7 +144,7 @@ c8y analytics extensions download --id 1179099345 --outputFileRaw MyBlocks.zip  
 
 Upload an Analytics extension built with the Block SDK:
 ```
-analytics extensions upload --file MyBlocks.zip --verbose --name MyBlocks --pas_extension MyBlocks
+c8y analytics extensions upload --file MyBlocks.zip --verbose --name MyBlocks --pas_extension MyBlocks
 ```
 
 
