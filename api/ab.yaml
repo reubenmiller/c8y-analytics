@@ -37,7 +37,6 @@ commands:
         type: string
         description: The name of the Analytics Builder model
         required: false
-        pipeline: true
       - name: description
         type: string
         description: The description of the Analytics Builder model
@@ -105,7 +104,6 @@ commands:
         type: string
         description: The name of the Analytics Builder model
         required: false
-        pipeline: true
       - name: description
         type: string
         description: The description of the Analytics Builder model

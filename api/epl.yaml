@@ -37,7 +37,6 @@ commands:
         type: string
         description: The name of the EPL App
         required: false
-        pipeline: true
       - name: description
         type: string
         description: The description of the EPL App
@@ -88,7 +87,6 @@ commands:
         type: string
         description: The name of the EPL App
         required: false
-        pipeline: true
       - name: description
         type: string
         description: The description of the EPL App
